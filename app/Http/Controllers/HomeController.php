@@ -45,6 +45,26 @@ class HomeController extends Controller
         return view('index', compact('data', 'request'));
     }
 
+    public function assets(Request $request)
+    {
+
+        $data = new User;
+
+        if ($request->get('search')) {
+            $data = $data->where('name', 'LIKE', '%' . $request->get('search') . '%')
+                ->orWhere('email', 'LIKE', '%' . $request->get('search') . '%');
+        }
+
+        if ($request->get('tanggal')) {
+            $data = $data->where('name', 'LIKE', '%' . $request->get('search') . '%')
+                ->orWhere('email', 'LIKE', '%' . $request->get('search') . '%');
+        }
+
+        $data = $data->get();
+
+        return view('assets', compact('data', 'request'));
+    }
+
     public function create()
     {
         return view('create');
@@ -84,6 +104,13 @@ class HomeController extends Controller
         $data = User::find($id);
 
         return view('edit', compact('data'));
+    }
+
+    public function detail(Request $request, $id)
+    {
+        $data = User::find($id);
+
+        return view('detail', compact('data'));
     }
 
     public function update(Request $request, $id)

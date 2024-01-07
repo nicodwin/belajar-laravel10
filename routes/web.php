@@ -31,6 +31,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth'], 'as' => 'admin.'], 
     Route::get('/dashboard', [HomeController::class, 'dashboard'])->name('dashboard');
 
     Route::get('/user', [HomeController::class, 'index'])->name('index');
+    Route::get('/assets', [HomeController::class, 'assets'])->name('assets');
     Route::get('/create', [HomeController::class, 'create'])->name('user.create');
     Route::post('/store', [HomeController::class, 'store'])->name('user.store');
 
@@ -38,6 +39,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth'], 'as' => 'admin.'], 
     Route::get('/serverside', [DataTableController::class, 'serverside'])->name('serverside');
 
     Route::get('/edit/{id}', [HomeController::class, 'edit'])->name('user.edit');
+    Route::get('/detail/{id}', [HomeController::class, 'detail'])->name('user.detail');
     Route::put('/update/{id}', [HomeController::class, 'update'])->name('user.update');
     Route::delete('/delete/{id}', [HomeController::class, 'delete'])->name('user.delete');
 
