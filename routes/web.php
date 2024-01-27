@@ -21,6 +21,19 @@ use Illuminate\Support\Facades\Route;
 //     echo 'Hello World';
 // });
 Route::get('/', [LoginController::class, 'index'])->name('login');
+
+Route::get('/enkripsi', [BelajarController::class, 'enkripsi'])->name('enkripsi');
+Route::get('/enkripsi-detail/{params}', [BelajarController::class, 'enkripsi_detail'])->name('enkripsi-detail');
+
+Route::get('/hashing', [BelajarController::class, 'hashing'])->name('hashing');
+
+Route::get('locale/{locale}', function ($locale) {
+    app()->setLocale($locale);
+    session()->put('locale', $locale);
+    return redirect()->back();
+})->name('locale');
+
+
 Route::get('/forgot-password', [LoginController::class, 'forgot_password'])->name('forgot-password');
 Route::post('/forgot-password-act', [LoginController::class, 'forgot_password_act'])->name('forgot-password-act');
 

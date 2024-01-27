@@ -38,7 +38,7 @@
                                     <p>{{ $data->email }}</p>
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">Nama</label>
+                                    <label for="exampleInputEmail1">{{ __('users.nama') }}</label>
                                     <p>{{ $data->name }}</p>
                                 </div>
                             </div>
@@ -47,9 +47,9 @@
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Type Rumah</th>
-                                            <th>Harga Rumah</th>
-                                            <th>Lokasi Rumah</th>
+                                            <th>{{ __('users.type_rumah') }}</th>
+                                            <th>{{ __('users.harga_rumah') }}</th>
+                                            <th>{{ __('users.Lokasi Rumah') }}</th>
                                         </tr>
                                     </thead>
                                     <tbody>
